@@ -1,7 +1,8 @@
 # 001-ComposeTutorial
+---
 
 ### Refs: 
-- [Android Developers](https://developer.android.com/develop/ui/compose/tutorial)
+- [Android Developers]
 
 ### Notes
 
@@ -22,4 +23,10 @@
 * The Empty Compose Activity template generates a default theme for your project that allows you to customize MaterialTheme.
 * Use `MaterialTheme.colorScheme` to style with colors from the wrapped theme. You can use these values from the theme anywhere a color is needed.
 * Material `Typography` styles are available in the MaterialTheme
-* Dark theme (or night mode) can be enabled to avoid a bright display especially at night, or simply to save the device battery. Thanks to the Material Design support, Jetpack Compose can handle the dark theme by default. Having used Material Design colors, text and backgrounds will automatically adapt to the dark background.
+* [Dark theme] (or night mode) can be enabled to avoid a bright display especially at night, or simply to save the device battery. Thanks to the Material Design support, Jetpack Compose can handle the dark theme by default. Having used Material Design colors, text and backgrounds will automatically adapt to the dark background. Color choices for the light and dark themes are defined in the IDE-generated `Theme.kt` file.
+* You can create multiple previews in your file as separate functions, or add multiple annotations to the same function.
+* Create list: For this use case, use Compose’s `LazyColumn` and `LazyRow`. These composables render only the elements that are visible on screen, so they are designed to be very efficient for long lists.
+
+
+[Android Developers]: https://developer.android.com/develop/ui/compose/tutorial
+[Dark theme]: https://developer.android.com/guide/topics/ui/look-and-feel/darktheme

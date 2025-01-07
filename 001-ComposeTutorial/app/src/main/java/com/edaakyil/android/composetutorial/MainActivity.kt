@@ -1,5 +1,6 @@
 package com.edaakyil.android.composetutorial
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -41,7 +42,7 @@ data class Message(val author: String, val text: String)
 @Composable
 fun MessageCard(msg: Message) {
     ComposeTutorialTheme {
-        Surface (modifier = Modifier.fillMaxSize()) {
+        Surface {
             Row(modifier = Modifier.padding(all = 8.dp)) {
                 Image(
                     painter = painterResource(R.drawable.profile_picture),
@@ -72,10 +73,17 @@ fun MessageCard(msg: Message) {
     }
 }
 
-@Preview
+@Preview(
+    name = "Dark Mode",
+    showBackground = true,
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
+@Preview(name = "Light Mode")
 @Composable
 fun MessageCardPreview() {
     MessageCard(
         msg = Message("Lexi", "Hey, take a look at Jetpack Compose, it's great!")
     )
 }
+
+
