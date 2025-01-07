@@ -1,6 +1,7 @@
-/**
- * SampleData for Jetpack Compose Tutorial 
- */
+package com.edaakyil.android.composetutorial.repository
+
+import com.edaakyil.android.composetutorial.model.Message
+
 object SampleData {
     // Sample conversation data
     val conversationSample = listOf(
