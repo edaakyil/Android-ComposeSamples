@@ -26,7 +26,15 @@
 * [Dark theme] (or night mode) can be enabled to avoid a bright display especially at night, or simply to save the device battery. Thanks to the Material Design support, Jetpack Compose can handle the dark theme by default. Having used Material Design colors, text and backgrounds will automatically adapt to the dark background. Color choices for the light and dark themes are defined in the IDE-generated `Theme.kt` file.
 * You can create multiple previews in your file as separate functions, or add multiple annotations to the same function.
 * Create list: For this use case, use Compose’s `LazyColumn` and `LazyRow`. These composables render only the elements that are visible on screen, so they are designed to be very efficient for long lists.
+* To store local UI state, you need to keep track of whether a message has been expanded or not. To keep track of this state change, you have to use the functions `remember` and `mutableStateOf`. Composable functions can store local state in memory by using `remember`, and track changes to the value passed to `mutableStateOf`. Composables (and their children) using this state will get redrawn automatically when the value is updated. This is called [recomposition]. By using Compose’s state APIs like `remember` and `mutableStateOf`, any changes to state automatically update the UI.
+
+
+> **Note:** You need to add the following imports to correctly use Kotlin's delegated property syntax (the by keyword). Alt+Enter or Option+Enter adds them for you.
+> `import androidx.compose.runtime.getValue` 
+> `import androidx.compose.runtime.setValue`
+
 
 
 [Android Developers]: https://developer.android.com/develop/ui/compose/tutorial
 [Dark theme]: https://developer.android.com/guide/topics/ui/look-and-feel/darktheme
+[recomposition]: https://developer.android.com/develop/ui/compose/mental-model#recomposition
