@@ -28,10 +28,21 @@
 * Create list: For this use case, use Compose’s `LazyColumn` and `LazyRow`. These composables render only the elements that are visible on screen, so they are designed to be very efficient for long lists.
 * To store local UI state, you need to keep track of whether a message has been expanded or not. To keep track of this state change, you have to use the functions `remember` and `mutableStateOf`. Composable functions can store local state in memory by using `remember`, and track changes to the value passed to `mutableStateOf`. Composables (and their children) using this state will get redrawn automatically when the value is updated. This is called [recomposition]. By using Compose’s state APIs like `remember` and `mutableStateOf`, any changes to state automatically update the UI.
 
-
 > **Note:** You need to add the following imports to correctly use Kotlin's delegated property syntax (the by keyword). Alt+Enter or Option+Enter adds them for you.
 > `import androidx.compose.runtime.getValue` 
 > `import androidx.compose.runtime.setValue`
+
+* The `clickable` modifier is used to handle click events on the composable. Instead of just toggling the background color of the `Surface`, you will animate the background color by gradually modifying its value from `MaterialTheme.colorScheme.surface` to `MaterialTheme.colorScheme.primary` and vice versa. To do so, you will use the `animateColorAsState` function.
+
+Here’s what you've learned so far:
+- Defining composable functions
+- Adding different elements in your composable
+- Structuring your UI component using layout composables
+- Extending composables by using modifiers
+- Creating an efficient list
+- Keeping track of state and modifying it
+- Adding user interaction on a composable
+- Animating messages while expanding them
 
 
 
