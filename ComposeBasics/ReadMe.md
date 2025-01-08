@@ -1,7 +1,6 @@
-# 002-ComposeBasics
+# ComposeBasics
 
-### Ref:
-- [Android Developer]
+**Tutorial link:** [Android Developer]
 
 
 <!-- Links -->
