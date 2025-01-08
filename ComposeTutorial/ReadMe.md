@@ -1,8 +1,6 @@
-# 001-ComposeTutorial
----
+# ComposeTutorial
 
-### Refs: 
-- [Android Developers]
+**Tutorial link:** [Android Developers]
 
 ### Notes
 
