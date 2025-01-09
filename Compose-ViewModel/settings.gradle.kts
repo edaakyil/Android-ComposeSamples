@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Compose-ViewModel"
+rootProject.name = "Unscramble"
 include(":app")
  
