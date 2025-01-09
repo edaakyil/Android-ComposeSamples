@@ -1,6 +1,6 @@
 # ComposeTutorial
 
-**Tutorial link:** [Android Developers]
+**[Tutorial link]** 
 
 ### Notes
 
@@ -44,6 +44,6 @@ Here’s what you've learned so far:
 
 
 <!-- Links -->
-[Android Developers]: https://developer.android.com/develop/ui/compose/tutorial
+[Tutorial link]: https://developer.android.com/develop/ui/compose/tutorial
 [Dark theme]: https://developer.android.com/guide/topics/ui/look-and-feel/darktheme
 [recomposition]: https://developer.android.com/develop/ui/compose/mental-model#recomposition
