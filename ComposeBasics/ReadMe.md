@@ -62,6 +62,18 @@ The more components you add to the UI, the more levels of nesting you create. Th
 * To use the Android Studio preview, you just have to mark any parameterless Composable function or functions with default parameters with the @Preview annotation and build your project. You can already see a Preview Composable function in the MainActivity.kt file. You can have multiple previews in the same file and give them names.
 * <mark>**`Surface` and `MaterialTheme` are concepts related to [Material Design], which is a design system created by Google to help you create user interfaces and experiences.**</mark> The components nested inside `Surface` will be drawn on top of that background color. The Material components, such as `androidx.compose.material3.Surface`, are built to make your experience better by taking care of common features that you probably want in your app, such as choosing an appropriate color for text. We say Material is opinionated because it provides good defaults and patterns that are common to most apps. The Material components in Compose are built on top of other foundational components (in `androidx.compose.foundation`), which are also accessible from your app components in case you need more flexibility.
 * The three basic standard layout elements in Compose are `Column`, `Row` and `Box`. They are Composable functions that take Composable content, so you can place items inside. For example, each child inside of a `Column` will be placed vertically.
+* `Button` is a composable provided by the material3 package which takes a composable as the last argument. Since [trailing lambdas] can be moved outside of the parentheses, you can add any content to the button as a child. For example, a `Text`:
+
+  ```kt
+  Button(
+      onClick = { } 
+  ) {
+      Text("Show less")
+  }
+  ```
+  Compose provides different types of Button according to the [Material Design Buttons spec] — `Button`, `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, and `TextButton`.
+* The `weight` modifier makes the element fill all available space, making it _flexible_, effectively pushing away the other elements that don't have a weight, which are called _inflexible_. It also makes the `fillMaxWidth` modifier redundant.
+
 
 <!-- Links -->
 
@@ -71,3 +83,5 @@ The more components you add to the UI, the more levels of nesting you create. Th
 [Material Design]: https://m3.material.io/
 [Compose Material Catalog]: https://play.google.com/store/apps/details?id=androidx.compose.material.catalog
 [List of Compose Modifiers]: https://developer.android.com/jetpack/compose/modifiers-list
+[trailing lambdas]: https://kotlinlang.org/docs/lambdas.html#passing-trailing-lambdas
+[Material Design Buttons spec]: https://m3.material.io/components/buttons/implementation/android
