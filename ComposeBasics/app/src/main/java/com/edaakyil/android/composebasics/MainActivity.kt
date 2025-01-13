@@ -30,12 +30,13 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyApp(modifier: Modifier = Modifier) {
-    Surface(
-        modifier = modifier,
-        color = MaterialTheme.colorScheme.background
-    ) {
-        Greeting("Android")
+fun MyApp(
+    modifier: Modifier = Modifier,
+    names: List<String> = listOf("World", "Compose")
+) {
+    Column(modifier = modifier) {
+        for (name in names)
+            Greeting(name = name)
     }
 }
 
@@ -44,13 +45,12 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     Surface(color = MaterialTheme.colorScheme.primary) {
         Column(modifier = modifier.padding(24.dp)) {
             Text(text = "Hello")
-            Text(text = "Hello")
             Text(text = name)
         }
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, widthDp = 320)
 @Composable
 fun MyAppPreview() {
     ComposeBasicsTheme {
