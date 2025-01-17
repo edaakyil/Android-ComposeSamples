@@ -2,11 +2,17 @@
 
 **[Tutorial link]**
 
+<img src="images/codelab.gif" alt="codelab-img" style="width:50%;margin:0px 25%"/>
+
 
 **Other useful links:**
 - [Compose Quick start]
 - [Compose Material Catalog]
 - [List of Compose Modifiers]
+- [Lambda expression]
+- [Higher-order functions and lambdas]
+- [How Compose uses Kotlin features here]
+- [Function Types documentation]
 
 
 ### Steps of App
@@ -58,7 +64,23 @@ The more components you add to the UI, the more levels of nesting you create. Th
 <mark>As a best practice, your function should include a Modifier parameter that is assigned an empty Modifier by default. Forward this modifier to the first composable you call inside your function. This way, the calling site can adapt layout instructions and behaviors from outside of your composable function.</mark>
 
 
-### Notes:
+### State in Compose
+Compose apps transform data into UI by calling composable functions. If your data changes, Compose re-executes these functions with the new data, creating an updated UI—this is called **recomposition**. Compose also looks at what data is needed by an individual composable so that it only needs to recompose components whose data has changed and skip recomposing those that are not affected.
+
+As mentioned in [Thinking in Compose]:
+
+Composable functions can execute frequently and in any order, you must not rely on the ordering in which the code is executed, or on how many times this function will be recomposed.
+
+To add internal state to a composable, you can use the `mutableStateOf` function, which makes Compose recompose functions that read that `State`.
+
+`State` and `MutableState` are interfaces that hold some value and trigger UI updates (recompositions) whenever that value changes.
+
+However you can't just assign `mutableStateOf` to a variable inside a composable. To preserve state across recompositions, _remember_ the mutable state using `remember`. `remember` is used to **guard** against recomposition, so the state is not reset.
+
+Note that if you call the same composable from different parts of the screen you will create different UI elements, each with its own version of the state. You can think of internal state as a private variable in a class.
+
+
+### Notes: 
 * To use the Android Studio preview, you just have to mark any parameterless Composable function or functions with default parameters with the @Preview annotation and build your project. You can already see a Preview Composable function in the MainActivity.kt file. You can have multiple previews in the same file and give them names.
 * <mark>**`Surface` and `MaterialTheme` are concepts related to [Material Design], which is a design system created by Google to help you create user interfaces and experiences.**</mark> The components nested inside `Surface` will be drawn on top of that background color. The Material components, such as `androidx.compose.material3.Surface`, are built to make your experience better by taking care of common features that you probably want in your app, such as choosing an appropriate color for text. We say Material is opinionated because it provides good defaults and patterns that are common to most apps. The Material components in Compose are built on top of other foundational components (in `androidx.compose.foundation`), which are also accessible from your app components in case you need more flexibility.
 * The three basic standard layout elements in Compose are `Column`, `Row` and `Box`. They are Composable functions that take Composable content, so you can place items inside. For example, each child inside of a `Column` will be placed vertically.
@@ -78,6 +100,7 @@ The more components you add to the UI, the more levels of nesting you create. Th
 <!-- Links -->
 
 [Tutorial link]: https://developer.android.com/codelabs/jetpack-compose-basics
+
 [Jetpack Compose]: https://developer.android.com/jetpack/compose
 [Compose Quick start]: https://developer.android.com/jetpack/compose/setup
 [Material Design]: https://m3.material.io/
@@ -85,3 +108,8 @@ The more components you add to the UI, the more levels of nesting you create. Th
 [List of Compose Modifiers]: https://developer.android.com/jetpack/compose/modifiers-list
 [trailing lambdas]: https://kotlinlang.org/docs/lambdas.html#passing-trailing-lambdas
 [Material Design Buttons spec]: https://m3.material.io/components/buttons/implementation/android
+[Thinking in Compose]: https://developer.android.com/jetpack/compose/mental-model#recomposition
+[Higher-order functions and lambdas]: https://kotlinlang.org/docs/lambdas.html
+[How Compose uses Kotlin features here]: https://developer.android.com/jetpack/compose/kotlin#higher-order
+[Function Types documentation]: https://kotlinlang.org/docs/lambdas.html#function-types
+[Lambda expression]: https://kotlinlang.org/docs/lambdas.html#lambda-expression-syntax
